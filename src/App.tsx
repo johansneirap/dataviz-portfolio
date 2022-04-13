@@ -5,8 +5,33 @@ import Button from '@mui/material/Button';
 import { AppBar, Box, Divider, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
 import { useTheme } from '@emotion/react';
 import MenuIcon from './icons/MenuIcon';
+import { Dashboard } from './pages/Dashboard';
 const drawerWidth = 240;
-function App() {
+
+const styles = {
+  mainCanvas: {
+    backgroundColor: "white", 
+    height: "calc(96vh - 62px)", 
+    width: "calc(90vw)", 
+    padding: "15px",
+    marginTop: "62px",
+    overflow: "hidden",
+    transition: "margin-left 0.2s",
+    display: "flex",
+  },
+  navBar: {
+    backgroundColor: "white",
+    color: "black",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    gap: "1rem",
+    padding: "0.4rem 1rem",
+    alignItems: "center",
+    height: "65px",
+  },
+}
+
+const App = () => {
   const [drawerVisible, setDrawerVisible] = useState(true);
   const theme = useTheme();
 
@@ -14,14 +39,7 @@ function App() {
     <Box className="App" sx={{ display: "flex"}}>
       <AppBar position="fixed" sx={{ 
           zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: "white",
-          color: "black",
-          flexDirection: "row",
-          justifyContent: "flex-start",
-          gap: "1rem",
-          padding: "0.4rem 1rem",
-          alignItems: "center",
-          height: "65px",
+          ...styles.navBar,
         }}>
         <span><b> Johans Neira Data Viz Portfolio </b></span> 
           <Button 
@@ -75,21 +93,11 @@ function App() {
         </Box>
     </Drawer>
     <div style={{
-      backgroundColor: "white", 
-      height: "calc(97vh - 62px)", 
-      width: "calc(100vw + 240px)", 
+      ...styles.mainCanvas,
       marginLeft: drawerVisible ? 0 : `-${drawerWidth}px`,
-      padding: "15px",
-      marginTop: "62px",
-      overflow: "hidden",
-      transition: "margin-left 0.2s",
+      width: `calc(100vw + ${!drawerVisible ? 0 : drawerWidth}px)`,
     }}>
-      <div style={{
-        backgroundColor: "#E3F2FD",
-        width: "100%",
-        height: "100%",
-      borderRadius: "25px",
-      }}></div>
+      <Dashboard />
     </div>
     </Box>
   )
