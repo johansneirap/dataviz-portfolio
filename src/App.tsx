@@ -70,7 +70,7 @@ const App = () => {
       <Toolbar />
       <Box sx={{ overflow: 'auto' }}>
           <List>
-            {['Dashboard', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            {['Dashboard', 'Web Portfolio', 'Send email', 'Drafts'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
                   {index % 2 === 0 ? "1" : "2"}
