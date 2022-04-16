@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-interface StylesDictionary {
-  [key: string]: React.CSSProperties;
-}
 
 const MainDiv = styled.div`
   background: #e3f2fd;
@@ -35,6 +32,32 @@ const ResumeCard = styled.div<{ primary?: boolean }>`
   position: relative;
   overflow: hidden;
   ${(props) => props.primary && `background: #1E88E5;`}
+
+  &:after {  
+    content: "";
+    background-color: #4526A0;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -5rem;
+    right: -1rem;
+    z-index: 1;
+    opacity: 0.5;
+    ${(props) => props.primary && `background: #1664C0;`}
+  }
+  &:before {
+    content: "";
+    background-color: #4526A0;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -3rem;
+    right: -5rem;
+    z-index: 2;
+    ${(props) => props.primary && `background: #1664C0;`}
+  }
 `;
 
 const Card = styled.div`
@@ -50,36 +73,13 @@ const Card = styled.div`
   align-items: center;
 `;
 
-const style: StylesDictionary = {
-  innerCircle: {
-    backgroundColor: "#512EA9",
-    height: "10rem",
-    width: "10rem",
-    borderRadius: "50%",
-    position: "absolute",
-    top: "-5rem",
-    right: "-1rem",
-    zIndex: "1",
-  },
-  innerCircle2: {
-    backgroundColor: "#4526A0",
-    height: "10rem",
-    width: "10rem",
-    borderRadius: "50%",
-    position: "absolute",
-    top: "-3rem",
-    right: "-5rem",
-    zIndex: "2",
-  },
-};
-
 export const Dashboard = () => {
   return (
     <MainDiv>
       <ResumeCardsContainer>
         <ResumeCard>
-          <div style={{ ...style.innerCircle }}></div>
-          <div style={{ ...style.innerCircle2 }}></div>
+          {/* <div style={{ ...style.innerCircle }}></div>
+          <div style={{ ...style.innerCircle2 }}></div> */}
           Dashboard resume card 1
         </ResumeCard>
         <ResumeCard primary>Dashboard resume card 2</ResumeCard>
