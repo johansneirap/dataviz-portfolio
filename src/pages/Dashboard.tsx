@@ -42,7 +42,6 @@ const ResumeCard = styled.div<{ primary?: boolean }>`
     position: absolute;
     top: -5rem;
     right: -1rem;
-    z-index: 1;
     opacity: 0.5;
     ${(props) => props.primary && `background: #1664C0;`}
   }
@@ -55,7 +54,6 @@ const ResumeCard = styled.div<{ primary?: boolean }>`
     position: absolute;
     top: -3rem;
     right: -5rem;
-    z-index: 2;
     ${(props) => props.primary && `background: #1664C0;`}
   }
 `;
@@ -78,8 +76,6 @@ export const Dashboard = () => {
     <MainDiv>
       <ResumeCardsContainer>
         <ResumeCard>
-          {/* <div style={{ ...style.innerCircle }}></div>
-          <div style={{ ...style.innerCircle2 }}></div> */}
           Dashboard resume card 1
         </ResumeCard>
         <ResumeCard primary>Dashboard resume card 2</ResumeCard>
