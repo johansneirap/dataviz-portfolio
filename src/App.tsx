@@ -28,6 +28,7 @@ const styles = {
     padding: "0.4rem 1rem",
     alignItems: "center",
     height: "65px",
+    boxShadow: "none",
   },
 }
 
@@ -64,11 +65,14 @@ const App = () => {
           '& .MuiDrawer-paper': {
             width: 240,
             boxSizing: 'border-box',
+            borderRight: "none",
+            padding: "1rem",
           }
       }}
     >
       <Toolbar />
-      <Box sx={{ overflow: 'auto' }}>
+      <Box sx={{ overflow: 'auto', 
+        borderRight: "none", }}>
           <List>
             {['Dashboard', 'Web Portfolio', 'Send email', 'Drafts'].map((text, index) => (
               <ListItem button key={text}>
