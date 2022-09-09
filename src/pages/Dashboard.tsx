@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import StackedAreaChart from "../components/StackedAreaChart";
 
 const MainDiv = styled.div`
   background: #e3f2fd;
@@ -32,9 +33,9 @@ const ResumeCard = styled.div<{ primary?: boolean }>`
   overflow: hidden;
   ${(props) => props.primary && `background: #1E88E5;`}
 
-  &:after {  
+  &:after {
     content: "";
-    background-color: #4526A0;
+    background-color: #4526a0;
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
@@ -46,7 +47,7 @@ const ResumeCard = styled.div<{ primary?: boolean }>`
   }
   &:before {
     content: "";
-    background-color: #4526A0;
+    background-color: #4526a0;
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
@@ -74,9 +75,7 @@ export const Dashboard = () => {
   return (
     <MainDiv>
       <ResumeCardsContainer>
-        <ResumeCard>
-          Dashboard resume card 1
-        </ResumeCard>
+        <ResumeCard>Dashboard resume card 1</ResumeCard>
         <ResumeCard primary>Dashboard resume card 2</ResumeCard>
         <ResumeCard
           style={{
@@ -88,8 +87,10 @@ export const Dashboard = () => {
         </ResumeCard>
       </ResumeCardsContainer>
       <ResumeCardsContainer>
-        <Card style={{ width: "80%" }}> Big Chart </Card>
-        <Card style={{ width: "20%", flexShrink: "1" }}> Info Card </Card>
+        <Card style={{ width: "80%" }}>
+          <StackedAreaChart />
+        </Card>
+        <Card style={{ width: "20%", flexShrink: "1" }}>Key Information</Card>
       </ResumeCardsContainer>
     </MainDiv>
   );
